@@ -1,33 +1,19 @@
-// src/app/app.config.ts
-import { ApplicationConfig, ErrorHandler } from '@angular/core';
-import { provideRouter, Router } from '@angular/router';
+import { ApplicationConfig, ErrorHandler, provideZoneChangeDetection } from '@angular/core';
+import { provideRouter } from '@angular/router';
 import { routes } from './app.routes';
-import * as Sentry from '@sentry/angular';
-import { BrowserTracing } from '@sentry/tracing';
-
-Sentry.init({
-  dsn: 'https://your-dsn.ingest.sentry.io/project-id', // Replace with real DSN
-  integrations: [
-    new BrowserTracing({
-      tracePropagationTargets: ['localhost', /^\//],
-    }),
-  ],
-  tracesSampleRate: 1.0,
-});
-
+import { rollbarProviders } from './core/tracking/rollbar.config'; // أو أي اسم للملف
+import { bugsnagProviders } from './core/tracking/bugsnag.config';
+import { initLogRocket } from './core/tracking/logrocket.config';
+import { sentryProviders } from './core/tracking/sentry.config';
+import { TrackJsErrorProviders } from './core/tracking/trackjs-error-handler';
+initLogRocket()
 export const appConfig: ApplicationConfig = {
   providers: [
+    provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(routes),
-    {
-      provide: ErrorHandler,
-      useValue: Sentry.createErrorHandler({
-        showDialog: true,
-      }),
-    },
-    {
-      provide: Sentry.TraceService,
-      deps: [Router],
-    },
-    Sentry.TraceService,
+    ...rollbarProviders,
+    ...bugsnagProviders,
+    ...sentryProviders,
+    ...TrackJsErrorProviders
   ],
 };

@@ -6,9 +6,20 @@
     "start": "ng serve",
     "build": "ng build && npm run sentry:sourcemaps",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test",
+    "test:local": "ng test",
     "lint": "tslint -p tsconfig.json",
-    "sentry:sourcemaps": "sentry-cli sourcemaps inject --org kareem-p9 --project angular-test ./dist && sentry-cli sourcemaps upload --org kareem-p9 --project angular-test ./dist"
+    "test": "ng test --watch=false --browsers=ChromeHeadless",
+    "sentry:sourcemaps": "sentry-cli sourcemaps inject --org kareem-p9 --project ng-k ./dist && sentry-cli sourcemaps upload --org kareem-p9 --project ng-k ./dist",
+
+    "format": "prettier --write \"src/**/*.ts\" \"src/**/*.html\"",
+    "lint:fix": "tslint --fix -p tsconfig.json",
+    "analyze": "ng build --stats-json && webpack-bundle-analyzer dist/ng-k/stats.json",
+    "test:coverage": "ng test --watch=false --code-coverage",
+    "e2e": "ng e2e",
+    "clean": "rimraf dist .angular",
+    "prepare": "husky install",
+    "postinstall": "ngcc --properties es2015 browser module main"
+
   },
   "private": true,
   "dependencies": {
@@ -20,10 +31,16 @@
     "@angular/platform-browser": "^19.1.0",
     "@angular/platform-browser-dynamic": "^19.1.0",
     "@angular/router": "^19.1.0",
+    "@bugsnag/browser-performance": "^2.14.0",
+    "@bugsnag/js": "^8.4.0",
+    "@bugsnag/plugin-angular": "^8.4.0",
     "@sentry/angular": "^10.0.0",
     "@sentry/cli": "^2.50.2",
     "@sentry/tracing": "^7.120.4",
+    "logrocket": "^10.1.0",
+    "rollbar": "^2.26.4",
     "rxjs": "~7.8.0",
+    "trackjs": "^3.10.4",
     "tslib": "^2.3.0",
     "zone.js": "~0.15.0"
   },
