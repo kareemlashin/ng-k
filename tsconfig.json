@@ -1,0 +1,141 @@
+/* To learn more about Typescript configuration file: https://www.typescriptlang.org/docs/handbook/tsconfig-json.html. */
+/* To learn more about Angular compiler options: https://angular.dev/reference/configs/angular-compiler-options. */
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "outDir": "./dist/out-tsc",
+    "strict": true,
+    "noImplicitOverride": true,
+    "noPropertyAccessFromIndexSignature": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "skipLibCheck": true,
+    "isolatedModules": true,
+    "esModuleInterop": true,
+    "experimentalDecorators": true,
+    "moduleResolution": "bundler",
+    "importHelpers": true,
+    "target": "ES2022",
+    "module": "ES2022"
+  },
+  "angularCompilerOptions": {
+    "enableI18nLegacyMessageIdFormat": false,
+    "strictInjectionParameters": true,
+    "strictInputAccessModifiers": true,
+    "strictTemplates": true
+  },
+  "rules": {
+    "adjacent-overload-signatures": true,
+    "align": [true, "parameters", "statements"],
+    "array-type": [true, "array"],
+    "arrow-parens": [true, "ban-single-arg-parens"],
+    "arrow-return-shorthand": true,
+    "ban": [true, "eval", "with"],
+    "ban-types": true,
+    "callable-types": true,
+    "class-name": true,
+    "comment-format": [true, "check-space"],
+    "curly": true,
+    "deprecation": true,
+    "eofline": true,
+    "forin": true,
+    "import-blacklist": [true, "rxjs/Rx"],
+    "import-spacing": true,
+    "indent": [true, "spaces", 2],
+    "interface-over-type-literal": true,
+    "jsdoc-format": true,
+    "label-position": true,
+    "max-classes-per-file": [true, 1],
+    "max-line-length": [true, 120],
+    "member-access": [
+      true,
+      "check-accessor",
+      "check-constructor",
+      "check-parameter-property"
+    ],
+    "member-ordering": [
+      true,
+      {
+        "order": [
+          "static-field",
+          "instance-field",
+          "static-method",
+          "instance-method"
+        ]
+      }
+    ],
+    "new-parens": true,
+    "no-angle-bracket-type-assertion": true,
+    "no-any": true,
+    "no-arg": true,
+    "no-bitwise": true,
+    "no-console": [true, "log", "error", "warn"],
+    "no-construct": true,
+    "no-debugger": true,
+    "no-duplicate-super": true,
+    "no-empty": true,
+    "no-empty-interface": true,
+    "no-eval": true,
+    "no-inferrable-types": [true, "ignore-params"],
+    "no-internal-module": true,
+    "no-misused-new": true,
+    "no-namespace": true,
+    "no-null-keyword": true,
+    "no-object-literal-type-assertion": true,
+    "no-shadowed-variable": true,
+    "no-string-literal": true,
+    "no-string-throw": true,
+    "no-switch-case-fall-through": true,
+    "no-trailing-whitespace": true,
+    "no-unnecessary-initializer": true,
+    "no-unused-expression": true,
+    "no-unused-variable": [true, { "ignore-pattern": "^_" }],
+    "no-var-keyword": true,
+    "object-literal-key-quotes": [true, "as-needed"],
+    "object-literal-shorthand": true,
+    "object-literal-sort-keys": false,
+    "one-variable-per-declaration": [true, "ignore-for-loop"],
+    "ordered-imports": true,
+    "prefer-const": true,
+    "prefer-for-of": true,
+    "prefer-object-spread": true,
+    "quotemark": [true, "single"],
+    "radix": true,
+    "semicolon": [true, "always"],
+    "space-before-function-paren": [true, "never"],
+    "trailing-comma": [true, { "multiline": "always", "singleline": "never" }],
+    "triple-equals": [true, "allow-null-check"],
+    "typedef": [
+      true,
+      "call-signature",
+      "parameter",
+      "property-declaration",
+      "member-variable-declaration"
+    ],
+    "typedef-whitespace": [
+      true,
+      {
+        "call-signature": "nospace",
+        "index-signature": "nospace",
+        "parameter": "nospace",
+        "property-declaration": "nospace",
+        "variable-declaration": "nospace"
+      }
+    ],
+    "variable-name": [
+      true,
+      "ban-keywords",
+      "check-format",
+      "allow-pascal-case"
+    ],
+    "whitespace": [
+      true,
+      "check-branch",
+      "check-decl",
+      "check-operator",
+      "check-module",
+      "check-separator",
+      "check-type"
+    ]
+  }
+}

@@ -1,0 +1,5 @@
+export const APP_CONFIG = {
+  ENABLE_BETA_FEATURES: false,
+  SHOW_DEBUG_TOOLS: true,
+  ENABLE_MULTI_LANGUAGE: true,
+};

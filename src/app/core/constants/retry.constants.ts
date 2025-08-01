@@ -1,0 +1,5 @@
+export const RETRY_POLICY = {
+  MAX_RETRIES: 3,
+  RETRY_INTERVAL_MS: 2000,
+  EXPONENTIAL_BACKOFF: true,
+};
